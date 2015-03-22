@@ -13,7 +13,10 @@ defmodule Router.File do
   end
 
   def identify() do
-    GenServer.call(__MODULE__, {:identify, "Archivo"})
+  	worker = :poolboy.checkout(:router)
+		file_type = GenServer.call(worker, {:identify, "Archivo"})
+		:poolboy.checkin(:router, worker)
+		file_type
   end
 
   def handle_call({:identify, file}, _from, state) do

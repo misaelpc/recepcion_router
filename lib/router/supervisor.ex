@@ -7,7 +7,7 @@ defmodule Router.Supervisor do
 
 
   def init(:ok) do
-
+    IO.puts "Inciando"
     # Here are my pool options
     pool_options = [
       name: {:local, :router},

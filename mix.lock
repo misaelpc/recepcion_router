@@ -1,1 +1,1 @@
-%{"poolboy": {:git, "git://github.com/devinus/poolboy.git", "fa87a6e51534d02c04a118a2f037d0ff296f2309", [tag: "1.4.2"]}}
+%{"poolboy": {:hex, :poolboy, "1.4.2"}}

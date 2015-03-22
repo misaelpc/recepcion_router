@@ -26,6 +26,6 @@ defmodule Router.Mixfile do
   #
   # Type `mix help deps` for more examples and options
   defp deps do
-    [{:poolboy, github: "devinus/poolboy", tag: "1.4.2"}]
+    [{:poolboy, "~> 1.4.1"}]
   end
 end
