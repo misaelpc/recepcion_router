@@ -7,8 +7,7 @@ defmodule Router.Supervisor do
 
 
   def init(:ok) do
-    IO.puts "Inciando"
-    # Here are my pool options
+   
     pool_options = [
       name: {:local, :router},
       worker_module: Router.File,
@@ -22,13 +21,6 @@ defmodule Router.Supervisor do
 
     supervise(children, strategy: :one_for_one)
 
-    # children = [
-    #   worker(Router.File,[]),
-    #   #worker(GenEvent, [[name: @manager_name]]),
-    #   #worker(KV.Registry, [@manager_name, [name: @registry_name]])
-    # ]
-
-    # supervise(children, strategy: :one_for_one)
   end
 
 end

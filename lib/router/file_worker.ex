@@ -12,16 +12,20 @@ defmodule Router.File do
     {:ok, state}
   end
 
-  def identify() do
+  def identify(file) do
   	worker = :poolboy.checkout(:router)
-		file_type = GenServer.call(worker, {:identify, "Archivo"})
+		file_type = GenServer.call(worker, {:identify, file})
 		:poolboy.checkin(:router, worker)
 		file_type
   end
 
   def handle_call({:identify, file}, _from, state) do
-    response = "El archivo que debemos identificar es el siguiente: #{file}"
-    {:reply, response, state}
+    case file do
+      "Declaration" -> 
+        {:reply, {:type, "Tax Declaration"}, state}
+      _ -> 
+        {:reply, {:type, "Not suportted"}, state}  
+    end
   end
 
 end
