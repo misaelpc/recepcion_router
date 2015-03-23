@@ -13,7 +13,7 @@ defmodule Router.Mixfile do
   # Type `mix help compile.app` for more information
   def application do
     [mod: {Router, []}, 
-     applications: [:logger,:poolboy]]
+     applications: [:logger]]
   end
 
   # Dependencies can be Hex packages:
@@ -26,6 +26,6 @@ defmodule Router.Mixfile do
   #
   # Type `mix help deps` for more examples and options
   defp deps do
-    [{:poolboy, "~> 1.4.1"}]
+    []
   end
 end

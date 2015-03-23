@@ -8,19 +8,13 @@ defmodule Router.Supervisor do
 
   def init(:ok) do
    
-    pool_options = [
-      name: {:local, :router},
-      worker_module: Router.File,
-      size: 5,
-      max_overflow: 10
-    ]
-
-    children = [
-      :poolboy.child_spec(:router, pool_options, [])
-    ]
-
+    children = []
     supervise(children, strategy: :one_for_one)
 
+  end
+
+  def identify(worker,file) do
+    GenServer.call(worker, {:identify, file})
   end
 
 end
